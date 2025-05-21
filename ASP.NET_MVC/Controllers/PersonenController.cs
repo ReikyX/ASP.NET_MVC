@@ -10,6 +10,10 @@ public class PersonenController : Controller
 
     private readonly PersonenService _personenService;
 
+    public PersonenController(PersonenService personenService)
+    {
+        _personenService = personenService;
+    }
     // GET: PersonenController
     public ActionResult Index()
     {
@@ -64,7 +68,7 @@ public class PersonenController : Controller
         {
             return NotFound();
         }
-        return View();
+        return View(person);
     }
 
     // POST: PersonenController/Edit/5
@@ -101,8 +105,9 @@ public class PersonenController : Controller
 
     // POST: PersonenController/Delete/5
     [HttpPost]
+    [ActionName("Delete")]
     [ValidateAntiForgeryToken]
-    public ActionResult Delete(int id, IFormCollection collection)
+    public ActionResult DeleteConfirm(int id)
     {
         try
         {
