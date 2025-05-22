@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ASP.NET_DB.Models.Personen>
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+	<a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Pk)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Vorname)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Nachname)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Alter)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Adresse)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Geschlecht)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Email)
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Pk)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Vorname)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Nachname)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Alter)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Adresse)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Geschlecht)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Email)
+				</td>
+				<td>
+					<a asp-action="Edit" asp-route-id="@item.Pk">Edit</a> |
+					<a asp-action="Details" asp-route-id="@item.Pk">Details</a> |
+					<a asp-action="Delete" asp-route-id="@item.Pk">Delete</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
